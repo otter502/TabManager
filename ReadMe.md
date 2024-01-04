@@ -47,7 +47,7 @@ It takes in a reference to the Subsystem and outputs the enum map.
 this is where the majority of the shuffleboard formatting code lives. it will create the entries and put a reference to them in the enum map so that the subsystem calling the function can easily access and update / receive the entries
 > this is more elaborated on in the next section
 
-> small implementation note when declaring a enumMap you need to format it like so:
+> small implementation note when declaring a enumMap you need to add a .class to the end of the enum class
 > ```java 
 > ... = new EnumMap<>(SubsystemEntries.class);
 > ```
@@ -78,3 +78,9 @@ you can either store the entire enumMap or store the individual entries as field
 after that it should be pretty simple to get/set the entries with the methods in the GenericEntry class as needed.
 
 in order to call commands from shuffleboard you add the widgets to the Tab using `tab.add(...)` with the Subsystem's command / commandBase that was passed as a parameter
+
+## a quick note
+
+this system allows for cleaner code but this might still limit some specifc uses of shuffleboard.
+
+this code shouldn't affect any other shuffleboard tools so if you need to you can still program your own specific shuffleboard utilities
